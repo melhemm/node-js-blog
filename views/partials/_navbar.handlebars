@@ -1,0 +1,40 @@
+<nav class="mb-1 navbar navbar-expand-lg info-color lighten-5">
+    <div class="container">
+        <a class="navbar-brand" href="/posts"><i class="far fa-star fa-lg"></i></a>
+        <button style="background-color: #ffffff;" class="navbar-toggler" type="button"
+            data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="navbarSupportedContent-4">
+            <ul class="navbar-nav ml-auto">
+                {{#if user }}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/posts">Feed</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/posts/add">Create Post</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>Settings</a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-info"
+                        aria-labelledby="navbarDropdownMenuLink-4">
+                        <a class="dropdown-item" href="/profile">{{user.name}}</a>
+                        <a class="dropdown-item" href="/users/logout">Log out</a>
+                    </div>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a href="/users/register" class="nav-link">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/users/login" class="nav-link">Login</a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>

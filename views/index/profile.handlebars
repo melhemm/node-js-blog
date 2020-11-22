@@ -1,0 +1,74 @@
+<div class="user_information">
+    <div class="profileImg mt-3">
+        <img src="./images/{{user.imagename}}" class="profile_img mt-3">
+    </div>
+    <ul style="list-style: none;" class="user_info_list">
+        <li style="text-transform: capitalize;" class="fullname">{{user.name}} {{user.lastname}}</li>
+        <li> <span class="usr_span">Current city:</span> {{user.city}}</li>
+        <li> <span class="usr_span">Studied at:</span> {{user.education}}</li>
+        <li><span class="usr_span">Email:</span> {{user.email}}</li>
+    </ul>
+    <hr>
+</div>
+
+<div class="text">
+    {{#if posts}}
+    <h3>Posts</h3> 
+</div>
+
+{{#each posts}}
+<div class="home_posts">
+    <p class="date">Posted on: {{formatDate posts.date "MMM Do YYYY"}} <br> Status: {{status}} </p>
+    <hr>
+    <div class="postDetails">
+        <p class="postText">
+            {{details}}
+        </p>
+    </div>
+    <div class="postImg">
+        <img src="./uploads/{{image}}">
+    </div>
+    <div class="post_options mb-3">
+        <a href="/posts/edit/{{id}}"><button class="btn btn-primary">Edit</button></a>
+        <a href="/posts/show/{{id}}"><i class="fas fa-comment fa-2x"></i></a>
+        <form method="POST" action="/posts/{{id}}?_method=DELETE">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" class="btn btn-danger btn-block" value="Delete">
+        </form>
+    </div>
+    {{/each}}
+</div>
+{{else}}
+<p>Write your first post</p>
+{{/if}}
+
+{{!-- {{#if posts}}
+<table class="table table-bordered table-dark mt-3">
+    <thead>
+        <tr>
+            <th>title</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each posts}}
+        <tr>
+            <td> <a href="/posts/show/{{id}}">{{title}}</a></td>
+            <td>{{formatDate data 'MMMM do YYYY'}}</td>
+            <td><span>{{status}}</span></td>
+            <td><a href="/posts/edit/{{id}}"><button class="btn btn-primary">Edit</button></a>
+                <form method="POST" action="/posts/{{id}}?_method=DELETE">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class="btn btn-danger btn-block" value="Delete">
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<p>Write your first post</p>
+{{/if}}
+</div> --}}

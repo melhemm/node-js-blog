@@ -1,0 +1,30 @@
+{{#each errors}}
+<div class="alert alert-danger">{{text}}</div>
+{{else}}
+{{/each}}
+
+<div class="card card-body" style="width: 700px; margin: 0 auto; max-width: 100%">
+    <div class="form-group" style="height: 250px; width: 700px; max-width: 100%">
+        <form action="/posts/{{posts.id}}?_method=PUT" method="POST">
+            <textarea name="details" class="form-control" required placeholder="Edit post"
+                style="resize: none; height: 200px">{{posts.details}}</textarea>
+
+            <div class="form-check">
+                <input type="checkbox" name="allowComments" placeholder="Allow comments" id="filled-in-box"
+                    checked="checked" class="form-check-input" {{#if posts.allowComments}}
+                checked="checked" {{/if}}>
+                <label for="filled-in-box" class="form-check-label">Allow comments</label>
+            </div>
+
+            <select name="status" class="browser-default custom-select mb-2" style="width: fit-content;">
+                {{#select posts.status}}
+                <option value="public" selected>Public</option>
+                <option value="private">Private</option>
+                <option value="unpublished">Unpublished</option>
+                {{/select}}
+            </select>
+            <button type="submit" class="btn btn-primary" style="width: fit-content;">Publish</button>
+        </form>
+    </div>
+</div>
+

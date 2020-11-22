@@ -1,0 +1,58 @@
+
+<div class="user_information_show">
+    <div class="profileImg mt-3">
+        <img src="/images/{{posts.user.imagename}}" class="single_post_profile_img">
+    </div>
+    <ul style="list-style: none;" class="user_info_list">
+        <li style="text-transform: capitalize;" class="fullname"><a href="/posts/user/{{posts.user.id}}">
+            {{posts.user.name}} {{posts.user.lastname}}</a></li>
+        <li> <span class="usr_span">Current city:</span> {{posts.user.city}}</li>
+        <li> <span class="usr_span">Studied at:</span> {{posts.user.education}}</li>
+        <li><span class="usr_span">Email:</span> {{posts.user.email}}</li>
+    </ul>
+    <hr>
+</div>
+
+<div class="home_posts mt-3">
+    <p class="date">{{formatDate posts.date "MMM Do YYYY"}}</p>
+    <div class="postDetails">
+        <p class="postText">
+            {{posts.details}}
+            <hr>
+        </p>
+    </div>
+    <div class="postImg">
+        <img src="/uploads/{{posts.image}}">
+    </div>
+</div>
+
+<div class="comment_posts_form">
+    {{#if posts.allowComments}}
+    {{#if user}}
+    <div class="comment_form">
+        <form action="/posts/comment/{{posts.id}}" method="POST" class="form">
+            <textarea name="commentBody" placeholder="write a commnet"></textarea>
+            <input type="submit" value="Add a comment" class="add_comment_btn">
+        </form>
+    </div>
+    {{else}}
+    <p class="alert alert-danger">Please login to write a comment</p>
+    {{/if}}
+</div>
+<div class="comments" >
+    {{#each posts.comments}}
+    <div class="comment_info">
+        <div class="user_comment">
+            <img src="/images/{{commentUser.imagename}}" class="comment_img_user">
+            <a href="/posts/user/{{commentUser.id}}" class="link_name">
+                <p class="user_comment_name">{{commentUser.name}} {{commentUser.lastname}}</p>
+            </a><br>
+        </div>
+        <p class="comment_date">Commented on: {{formatDate commentDate 'MMM Do YYYY'}}</p> 
+        <div class="date_body">
+            <p class="commnet_body">{{commentBody}}</p>
+        </div>
+    </div>
+    {{/each}}
+    {{/if}}
+</div>

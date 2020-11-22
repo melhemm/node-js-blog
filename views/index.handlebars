@@ -1,0 +1,22 @@
+{{#each posts}}
+
+<div class="home_posts">
+    <div class="user_info">
+        <img src="{{user.imagename}}" class="profile_img_post">
+        <a href="/posts/user/{{user.id}}" class="user_name_post"> <br> {{user.name}} {{user.lastname}}</a>
+    </div>
+    <p class="date">{{formatDate posts.date "MMM Do YYYY"}}</p>
+    <hr>
+    <div class="postDetails">
+        <p class="postText">
+            {{details}}
+        </p>
+    </div>
+    <div class="postImg">
+        <img src="{{image}}">
+    </div>
+    <div class="post_options">
+        <a href="/posts/show/{{id}}"><i class="fas fa-comment fa-2x"></i></a>
+    </div>
+</div>
+{{/each}}
