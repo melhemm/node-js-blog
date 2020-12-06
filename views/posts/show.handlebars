@@ -29,11 +29,12 @@
 <div class="comment_posts_form">
     {{#if posts.allowComments}}
     {{#if user}}
-    <div class="comment_form">
+    <div class="md-form mb-2 mt-2 pink-textarea active-pink-textarea">
         <form action="/posts/comment/{{posts.id}}" method="POST" class="form">
-            <textarea name="commentBody" placeholder="write a commnet"></textarea>
-            <input type="submit" value="Add a comment" class="add_comment_btn">
+            <textarea name="commentBody" placeholder="write a commnet" class="md-textarea form-control"></textarea>
+            <input type="submit" value="Add a comment" class="btn btn-primary mt-2 mb-2">
         </form>
+        
     </div>
     {{else}}
     <p class="alert alert-danger">Please login to write a comment</p>

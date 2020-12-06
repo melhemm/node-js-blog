@@ -38,18 +38,6 @@ body {
 
 /* Welcome Page Login Form */
 
-.but {
-    border-radius: 20px;
-    border: 1px solid #FFFFFF;
-    background-color: #33b5e5;
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 14px 35px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
 .login_form {
     background-color: #ffffff;
     display: flex;
@@ -60,15 +48,6 @@ body {
     height: 100%;
     text-align: center;
 }
-
-/* input {
-    background-color: #eee;
-    border: none;
-    padding: 15px 15px;
-    margin: 2rem;
-    margin-top: 2rem;
-    width: 100%;
-} */
 
 .containerRegForm {
     background-color: #ffffff;
@@ -211,10 +190,6 @@ body {
     margin: 0.1rem;
 } */
 
-.btn {
-    margin-top: 0.2rem;
-}
-
 /* post form style */
 
 .post_form {
@@ -273,13 +248,6 @@ body {
     cursor: pointer;
     /* "hand" cursor */
 }
-
-/* .post_img {
-    width: 300px;
-    height: 300px;
-    max-width: 100%;
-    max-height: 100%;
-} */
 
 /* Posts Style */
 

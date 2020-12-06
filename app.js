@@ -99,7 +99,11 @@ app.use('/posts', posts);
 app.use('/users', users);
 app.use('/', index);
 
-const port = process.env.PORT || 8080;
+app.get('*', (req, res) => {
+    res.redirect('/')
+})
+
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
     console.log(`Server Started on Port ${port}`);

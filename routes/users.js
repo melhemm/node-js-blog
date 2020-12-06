@@ -38,6 +38,7 @@ router.get('/login', (req, res) => {
     res.render('users/login');
 });
 
+
 // Login Form Post 
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
