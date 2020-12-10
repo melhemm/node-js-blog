@@ -99,11 +99,12 @@ app.use('/posts', posts);
 app.use('/users', users);
 app.use('/', index);
 
-
+// 404
 app.get('*', (req, res) => {
     res.redirect('/')
 })
 
+// Port 
 const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
