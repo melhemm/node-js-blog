@@ -2,7 +2,7 @@
 
 <div class="home_posts">
     <div class="user_info">
-        <img src="/images/{{user.imagename}}" class="profile_img_post">
+        <img src="{{user.imagename}}" class="profile_img_post">
         <a href="/posts/user/{{user.id}}" class="user_name_post" style="text-transform: capitalize;"> <br> {{user.name}} {{user.lastname}}</a>
     </div>
     <p class="date">{{formatDate posts.date "MMM Do YYYY"}}</p>
@@ -13,7 +13,7 @@
         </p>
     </div>
     <div class="postImg">
-        <img src="/uploads/{{image}}">
+        <img src="{{image}}">
     </div>
     <div class="post_options">
         <a href="/posts/show/{{id}}"><i class="fas fa-comment fa-2x"></i></a>

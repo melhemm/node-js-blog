@@ -1,6 +1,6 @@
 <div class="user_information">
     <div class="profileImg mt-3">
-        <img src="./images/{{user.imagename}}" class="profile_img mt-3">
+        <img src="{{user.imagename}}" class="profile_img mt-3">
     </div>
     <ul style="list-style: none;" class="user_info_list">
         <li style="text-transform: capitalize;" class="fullname">{{user.name}} {{user.lastname}}</li>
@@ -26,7 +26,7 @@
         </p>
     </div>
     <div class="postImg">
-        <img src="./uploads/{{image}}">
+        <img src="{{image}}">
     </div>
     <div class="post_options mb-3">
         <a href="/posts/edit/{{id}}"><button class="btn btn-primary">Edit</button></a>

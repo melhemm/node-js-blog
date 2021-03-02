@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
@@ -14,7 +14,7 @@ const app = express();
 const posts = require('./routes/posts');
 const users = require('./routes/users');
 const index = require('./routes/index');
-
+const mongoose = require('./database');
 
 // Static Folder
 app.use(express.static('public'));
@@ -42,13 +42,7 @@ const {
 mongoose.Promise = global.Promise;
 
 // Connect to mongoose
-mongoose.connect('mongodb://localhost/social-network', {
-    useNewUrlParser: true,
-    // useUnifiedTopology: true
-    useUnifiedTopology: true
-}).then(function () {
-    console.log('MongoDB Connected...')
-}).catch(err => console.log(err));
+
 
 // Handlebars Middleware
 app.engine('handlebars', exphbs({
@@ -105,8 +99,8 @@ app.get('*', (req, res) => {
 })
 
 // Port 
-const port = process.env.PORT || 8080;
+const port = 8080;
 
-app.listen(port, () => {
+app.listen(process.env.PORT || PORT , port, () => {
     console.log(`Server Started on Port ${port}`);
 });

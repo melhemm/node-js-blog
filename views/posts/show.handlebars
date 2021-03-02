@@ -1,7 +1,7 @@
 
 <div class="user_information_show">
     <div class="profileImg mt-3">
-        <img src="/images/{{posts.user.imagename}}" class="single_post_profile_img">
+        <img src="{{posts.user.imagename}}" class="single_post_profile_img">
     </div>
     <ul style="list-style: none;" class="user_info_list">
         <li style="text-transform: capitalize;" class="fullname"><a href="/posts/user/{{posts.user.id}}">
@@ -22,7 +22,7 @@
         </p>
     </div>
     <div class="postImg">
-        <img src="/uploads/{{posts.image}}">
+        <img src="{{posts.image}}">
     </div>
 </div>
 
@@ -44,7 +44,7 @@
     {{#each posts.comments}}
     <div class="comment_info">
         <div class="user_comment">
-            <img src="/images/{{commentUser.imagename}}" class="comment_img_user">
+            <img src="{{commentUser.imagename}}" class="comment_img_user">
             <a href="/posts/user/{{commentUser.id}}" class="link_name">
                 <p class="user_comment_name">{{commentUser.name}} {{commentUser.lastname}}</p>
             </a><br>

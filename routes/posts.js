@@ -11,7 +11,7 @@ const {
 
 const storage = multer.diskStorage({
     destination: function(req, file,cb) {
-        cb(null, './public/uploads')
+        cb(null, './uploads')
     },
     filename:(req, file,cb)=> {
         cb(null, file.fieldname +'-'+ Date.now() + path.extname(file.originalname));
@@ -94,7 +94,9 @@ router.get('/show/:id', (req, res) => {
                     res.redirect('/posts')
                 }
             }
-        });
+        }).catch((err) => {
+            console.log('Show Single Post ',err);
+        })
 });
 
 // Add Posts Form 
@@ -154,6 +156,8 @@ router.get('/edit/:id', ensureAuthenticated, (req, res) => {
                 posts: posts
             });
         }
+    }).catch((err) => {
+        console.log(err);
     })
 });
 
@@ -178,7 +182,9 @@ router.put('/:id', ensureAuthenticated,(req, res) => {
             posts.save().then(posts => {
                 req.flash('success_msg', 'Post updated');
                 res.redirect('/profile')
-            });
+            }).catch((err) => {
+                console.log('Edit form process',err);
+            })
         });
 });
 
@@ -189,12 +195,14 @@ router.delete('/:id', ensureAuthenticated, (req, res) => {
     }).then(() => {
         req.flash('success_msg', 'Post removed');
         res.redirect('/posts')
-    });
+    }).catch((err) => {
+        console.log('Delete Posts',err);
+    })
 });
 
 // Add comment 
-router.post('/comment/:id', ensureAuthenticated,(req, res) => {
-    Posts.findOne({
+router.post('/comment/:id', ensureAuthenticated, async (req, res) => {
+     Posts.findOne({
             _id: req.params.id
         })
         .then(posts => {
@@ -208,6 +216,8 @@ router.post('/comment/:id', ensureAuthenticated,(req, res) => {
             posts.save().then(posts => {
                 res.redirect(`/posts/show/${posts.id}`)
                 console.log(newComment)
+            }).catch((err) => {
+                console.log('Push to comments array',err);
             })
         })
 })
